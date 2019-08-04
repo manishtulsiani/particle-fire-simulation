@@ -15,8 +15,11 @@ namespace pfs {
 		
 	public:
 		Particle();
-		virtual ~Particle();
+		virtual ~Particle();		
 		void update(int interval);
+
+	private:
+		void init();
 	};
 }
 
