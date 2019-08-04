@@ -5,6 +5,7 @@ This is a C++ tutorial simulation project to understand and practice various con
 
 The program has the following classes:
   1. Screen - A screen defines a window of 800X600 pixels. The Screen class supports the following functions:
+  
       a. init - initializes a screen object and required SDL components for rendering, texture and pixel buffer.
       b. setPixel - sets a pixel value in the buffer. The pixel is of the format: RGBA
       c. updateScreen - updates the screen by clearing and rerendering the texture.
