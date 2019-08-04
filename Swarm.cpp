@@ -10,5 +10,11 @@ namespace pfs {
 	{
 		delete[] m_particles;
 	}
+	void Swarm::update()
+	{
+		for (int i = 0; i < NPARTICLES; i++) {
+			m_particles[i].update();
+		}
+	}
 }
 

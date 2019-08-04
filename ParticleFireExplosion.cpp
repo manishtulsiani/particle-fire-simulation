@@ -22,6 +22,8 @@ int main(int argc, char* argv[])
 	while (true) {
 		
 		// Draw particles
+		screen.clearScreen();
+		swarm.update();
 
 		int elapsed = SDL_GetTicks();
 		unsigned char green = (unsigned char)((1 + sin(elapsed * 0.0001)) * 128);

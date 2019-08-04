@@ -4,7 +4,7 @@ namespace pfs {
 	class Swarm
 	{
 	public :
-		static const int NPARTICLES = 5000;
+		static const int NPARTICLES = 1000;
 
 	private:
 		Particle* m_particles;
@@ -13,6 +13,7 @@ namespace pfs {
 		Swarm();
 		~Swarm();
 		const Particle* const getParticles() { return m_particles; }
+		void update();
 	};
 }
 
