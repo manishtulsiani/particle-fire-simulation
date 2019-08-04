@@ -8,8 +8,7 @@ namespace pfs {
 	public:
 
 		static const int SCREEN_WIDTH = 800;
-		static const int SCREEN_HEIGHT = 600;
-		static constexpr int SCREEN_AREA = SCREEN_WIDTH * SCREEN_HEIGHT;
+		static const int SCREEN_HEIGHT = 600;		
 
 	private:
 
@@ -23,6 +22,8 @@ namespace pfs {
 		Screen();
 		bool init();
 		bool processEvents();
+		void setPixel(int x, int y, Uint8 red, Uint8 green, Uint8 blue);
+		void updateScreen();
 		void close();
 
 	};
