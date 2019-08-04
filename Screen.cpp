@@ -17,7 +17,7 @@ namespace pfs {
 			SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH,
 			SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
 
-		if (m_window == NULL) {
+		if (!m_window) {
 			SDL_Quit();
 			return false;
 		}
@@ -26,13 +26,13 @@ namespace pfs {
 		m_texture = SDL_CreateTexture(m_renderer, SDL_PIXELFORMAT_RGBA8888,
 			SDL_TEXTUREACCESS_STATIC, SCREEN_WIDTH, SCREEN_HEIGHT);
 
-		if (m_renderer == NULL) {
+		if (!m_renderer) {
 			SDL_DestroyWindow(m_window);
 			SDL_Quit();
 			return false;
 		}
 
-		if (m_texture == NULL) {
+		if (!m_texture) {
 			SDL_DestroyRenderer(m_renderer);
 			SDL_DestroyWindow(m_window);
 			SDL_Quit();
@@ -111,7 +111,7 @@ namespace pfs {
 						int currentX = x + col;
 						int currentY = y + row;
 
-						// only handle pixels within the scree
+						// only handle pixels within the screen
 
 						if (currentX >= 0 && currentX < SCREEN_WIDTH && currentY >= 0 && currentY < SCREEN_HEIGHT) {
 							Uint32 color = m_buffer2[currentY * SCREEN_WIDTH + currentX]; // the current pixel color
