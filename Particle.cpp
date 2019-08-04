@@ -1,33 +1,26 @@
 #include "Particle.h"
 #include <stdlib.h>
+#define _USE_MATH_DEFINES
+#include <math.h>
+
 
 namespace pfs {
-	Particle::Particle()
+	Particle::Particle(): m_x(0), m_y(0)
 	{
-		// define a space in cartesian co-ordinates from -1,-1 to +1,+1
-		m_x = ((2.0 * rand()) / RAND_MAX) - 1;
-		m_y = ((2.0 * rand()) / RAND_MAX) - 1;
-
-		xspeed = 0.001 * ((2.0 * rand()) / RAND_MAX - 1); // get a random number from -1 to +1
-		yspeed = 0.001 * ((2.0 * rand()) / RAND_MAX - 1); // get a random number from -1 to +1
+		m_direction = (2 * M_PI * rand()) / RAND_MAX; // direction is the angle
+		m_speed = (0.0001 * rand()) / RAND_MAX;
 	}
 
 	Particle::~Particle()
 	{
 	}
-	void Particle::update()
+	void Particle::update(int interval)
 	{
-		m_x += xspeed;
-		m_y += yspeed;
+		double xspeed = m_speed * cos(m_direction);
+		double yspeed = m_speed * sin(m_direction);
 
-		// don't move outside the screen edge
-
-		if (m_x <= -1.0 || m_x >= 1.0) {
-			xspeed = -xspeed;
-		}
-
-		if (m_y <= -1.0 || m_y >= 1.0) {
-			yspeed = -yspeed;
-		}
+		// multiplying by the time interval between consecutive for loops ensures the speed of movement is consistent
+		m_x += xspeed * interval;
+		m_y += yspeed * interval;
 	}
 }
