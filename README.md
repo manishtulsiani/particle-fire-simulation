@@ -17,6 +17,7 @@ The program has the following classes:
   3. Swarm - A Swarm is a colletion of particles.
   
   The main flow is controlled by ParticleFireExplosion.cpp. The flow control is as follows:
+  
       1. Create a screen and a swarm.
       2. Update all the particles of the swarm.
       3. Map each particle to a pixel.
